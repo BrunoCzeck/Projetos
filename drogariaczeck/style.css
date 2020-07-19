@@ -1,0 +1,24 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background: #000000;
+    height:100px;
+}
+h1 {
+    text-align: center;
+}
+form {
+    padding: 250px;
+    height: 333px;
+    width: 50px; 
+    padding:90px;
+}
+form label {
+    display:block;
+}
+form input {
+    display:block;
+    padding: 10px;
+}
