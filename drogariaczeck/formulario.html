@@ -1,23 +1,66 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link href="bootstrap.css" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" href="style.css">
+    <title>Primeira Página</title>
 
-<html>
-</html>
+</head>
 <body>
-    <header></header>
-    <form>
-        <label>Nome:</label> <!-- Serve como uma etiqueta --> 
-        <input class="caixadetexto" type="text">
-        <label>Email</label>
-        <input type="text"> 
-        <label>Masculino</label>
-        <input type="checkbox">
-        <label>Feminino</label>
-        <input type="checkbox">
-        <input type="submit" value="Enviar Formulario">
-        <textarea cols="30" rows="10"></textarea>        
-        
-    
+    <header>
+            <div class="caixa">
+                <div class="flores"><img src="img/flores.png"></div>
+                
+                <nav> 
+                        
+                   
+                    <ul>    
+                        <div class="logocampo"><img src="img/campotvlogo.png"></div> 
 
+                        <li><a class="nav-item" href="index.html"><i class="fas fa-home"></i> Home </a></li>
+                        
+                        <li><a class="nav-item" href="#"><i class="fas fa-edit"></i> Editar </a></li>
+                        
+                        <li><a class="nav-item" href="formulario.html"><i class="fas fa-cash-register"></i> Cadastrar </a></li>
+                    
+                        <li><a class="nav-item" href="#"><i class="fas fa-cubes"></i> Produtos </a></li>
+
+                    </ul>
+                </nav>
+            </div>    
+        
+    </header>
+   
+        
+     
+      <form>
+
+          <label for="local"> Localização: </label> 
+          <input type="text" id="local">
+
+          <label for="nome"> Produto: </label> <!-- Serve como uma etiqueta --> 
+          <input type="text" id="nome">
+
+          <label for="email"> Quantidade:</label>
+          <input type="text" id="email">
+          <label for="telefone">Código:</label>
+          <input type="text" id="telefone"> <!-- Quando você clica no texto ele seleciona direto a box. -->
+       
+          <label for="mensagem"> Descrição: </label>
+          <textarea cols="5" rows="2" id="mensagem"></textarea>
+            
+            <br>
+            <input type="submit" value="Enviar Formulario">
+            <input type="reset"  value="Limpar">
       </form>    
+   
+        <footer>
           
-   </body>
+        </footer>       
+      
+</body>
+</html>

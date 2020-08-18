@@ -1,17 +1,14 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: Arial;
 }
-
 header{
-    background: #000000;
-    height:50px;
-}
+    background: #036b03;
+    height: 120px;
+    display: inline;
 
-body {
-    background: #696969;
-}
+}   
+
 
 .li {
     color:white;
@@ -28,36 +25,61 @@ nav li {
     top:15px;
     display: inline;
     margin:10px;
+    
+}
+nav i {
+    padding: 10px;
 }
 
 nav a {
-    color:#ffffff;
+    position: relative;
+    font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+    color:#000000;
     text-decoration: none;
-    padding:9.5%;
     font-size: 20px;
+    padding: 8.5%;
 }
-h1{
-    color: #ffffff;
-    font-size: 15px;
-    
+.flores {
+    position: absolute;
+    left: 1450px;
 }
-footer {
-    background: #000000;
-    height: 100px;
 
+.logocampo {
+    position: relative;
+    left: 890px;
 }
+
+.paragrafo {
+    font-size: 15px;
+}
+
+footer {
+    position: relative;
+    background: #036b03;
+    height: 120px;
+}
+
 .sociais {
     position: relative;
     text-align: center;
     margin:0 auto;
     display:inline;
 }
-.fa-facebook{
-    color:white;
+    
+form {
+    position: relative;
+    right: -590px;
+    margin: auto;
+    padding: 45px;
+    
 }
-.fa-instagram{
-    color:white;
+
+form label {
+    display:block;
 }
-.fa-whatsapp{
-    color:white;
+
+form input, form textarea{
+    margin: 5px;
+    padding:5px 10px;
+    width: 15%;
 }
