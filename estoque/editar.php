@@ -2,6 +2,10 @@
 
 session_start(); // inicia a sessão da mensagem de cadastro
 include_once("conexao.php");
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$result_produto= "SELECT * FROM produtos WHERE id = '$id'";
+$resultado_produto = mysqli_query($conn, $result_produto); 
+$row_produto = mysqli_fetch_assoc($resultado_produto);
 
 
 ?>
@@ -10,15 +14,15 @@ include_once("conexao.php");
 <html lang ="pt-br">
 
 	<head>
-		<title>Editar</title>
+		<title>Formulario</title>
 		<link rel="stylesheet" href="style.css">
 		
 	</head>	
 	
 	<body>
-		<button><a href="form.php">Cadastro</a></button>
-		<button><a href="editar.php">Editar</a></button>
-		<h1>Editar</h1>
+		<button><a href="form.php">Cadastrar Produto</a></button>
+		<button><a href="listar.php">Listar Produtos</a></button>
+		<h1>Editar Usuario</h1>
 		
 		<?php
 		
@@ -26,62 +30,22 @@ include_once("conexao.php");
 				echo $_SESSION['msg'];
 				unset ($_SESSION['msg']);
 			}
-		// Paginação 
-		//Recebe a pg e o numero 
-		$pagina_atual= filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1; 
-		
-		// setar a quantidade itens
-		$qnt_result_pg = 10;
-		
-		$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg; 
-		// Final da Paginação 
-		$result_produtos = "SELECT * FROM produtos LIMIT $inicio, $qnt_result_pg"; 
-		$resultado_produtos = mysqli_query($conn, $result_produtos);
-		while($row_produtos = mysqli_fetch_assoc($resultado_produtos)){ 
-				 echo "Id: " . $row_produtos['id'] . "<br>";	
-				 echo "Produto: " . $row_produtos['produto'] . "<br>";				 
-				 echo "Quantidade: " . $row_produtos['quantidade'] . "<br><hr>";				 
-				 
-		}
-		
-		$result_pg = "SELECT COUNT(id) AS num_result FROM produtos ";
-		$resultado_pg = mysqli_query($conn, $result_pg);
-		$row_pg = mysqli_fetch_assoc($resultado_pg);
-		//echo $row_pg['numresult'];    // Quantidade de pagina
-		
-		$quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);
-		$max_links = 5;
-		
-		echo "<button><a href='editar.php?pagina=1'> Volta </a></button>";
-		for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
-		
-		}
-			if ($pag_ant >= 1){
-				// echo "<a href='edi tar.php?pagina=$pag_ant'> $pag_ant </a>";
-			}
-		
-		
-		echo "$pagina";
-				
-		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
-				if($pag_dep <= $quantidade_pg){
-					// so pode imprimir a quantidade de paginas que existe 
-				 echo "<a href='editar.php?pagina=$pag_dep'> $pag_dep </a>";
-				}
-		}
-	
-
-
-
-
-
-		
-		echo "<button><a href='editar.php?pagina=$quantidade_pg'> Proximo </a></button>";
-
-		
+			
 		?>
-		
+		<form method="POST" action="proc_edit_produto.php">
+				  <input type="hidden" name="id" value="<?php echo $row_produto['id']?>">
+
+				
+				  <label for="produto"> Produto: </label> 
+				  <input type="text" name="produto" value="<?php echo $row_produto['produto']?>">
+
+				  <label for="quantidade"> Quantidade:</label>
+				  <input type="text" name="quantidade" value="<?php echo $row_produto['quantidade']?>"> 
+				  
+				 <br>
+				  <input type="reset"  value="Limpar" class="limpar">
+				  <input type="submit" value="Editar" class="enviar">
+				 
 		</form>
 	</body>
 </html> 
